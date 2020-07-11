@@ -1,6 +1,6 @@
 # gams.vim
 
-Syntax highlighting for the GAMS programming language
+Syntax highlighting for GAMS
 
 ## Installation
 
