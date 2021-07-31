@@ -262,7 +262,7 @@ syn region gamsEqn    matchgroup=Delimiter start=/\.\.\(\s\|\n\)/ end=/;/ fold t
 syn region gamsEqDecl matchgroup=gamsDeclaration start=/^\s*equations\{0,1\}/ end=/;/ fold transparent keepend contains=gamsItem
 
 " variable declaration region
-syn region gamsVar matchgroup=gamsDeclaration start=/^.*variables\{0,1\}/ end=/;/ fold transparent keepend contains=gamsItem
+syn region gamsVar matchgroup=gamsDeclaration start=/^\s*variables\{0,1\}/ end=/;/ fold transparent keepend contains=gamsItem
 
 " set region
 syn region gamsSet matchgroup=gamsDeclaration start=/^\s*sets\{0,1\}/ end=/;/ fold transparent keepend contains=gamsItem
