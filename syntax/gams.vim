@@ -7,6 +7,11 @@ if exists("b:current_syntax")
   finish
 endif
 
+" TODO XXX
+" 1) The commenting is wrong; it should be at the beggining of the line
+" Maybe this is t_comment issue
+" 2) highlight the sets inside paranthesis in the text
+
 " gams is not case sensitive
 syn case ignore
 
@@ -238,7 +243,7 @@ syn region gamsGlobalVar start="%" end="%\|\$"
 syn match  gamsInclude           "%\d\+"
 
 " TODO and FIXME are special keywords in comments
-syn keyword gamsTodo contained       TODO FIXME
+syn keyword gamsTodo contained       TODO FIXME XXX NOTE
 
 " GAMS comments
 syn match  gamsComment "\(^\*.*\|#.*\)" contains=gamsTodo,@Spell
