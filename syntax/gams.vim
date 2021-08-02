@@ -52,7 +52,7 @@ syn match   gamsComparison "<=>\|=\|->\|<>\|>\|<"
 syn keyword gamsComparison eq ne gt ge lt le eqv imp
 
 " math and statistical functions
-syn keyword gamsFunction      abs asc sigmoid sum
+syn keyword gamsFunction      abs asc sigmoid sum ..
 syn keyword gamsFunction      acos acosh asin asinh atan atan2
 syn keyword gamsFunction      atanh ceil ctime cos cosh exp floor log log10
 syn keyword gamsFunction      max min precision round sin sinh sqrt tan tanh sqrt
