@@ -243,7 +243,7 @@ syn region gamsGlobalVar start="%" end="%\|\$"
 syn match  gamsInclude           "%\d\+"
 
 " TODO and FIXME are special keywords in comments
-syn keyword gamsTodo contained       TODO FIXME XXX NOTE
+syn keyword gamsTodo contained       TODO FIXME XXX NOTE JDM ASKJDM
 
 " GAMS comments
 syn match  gamsComment "\(^\*.*\|#.*\)" contains=gamsTodo,@Spell
