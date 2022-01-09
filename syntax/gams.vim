@@ -25,7 +25,7 @@ syn keyword gamsStatement       option
 syn keyword gamsStatement       alias
 syn keyword gamsStatement       sameas abort
 syn keyword gamsStatement       free semicont semiint sos1 sos2 binary integer
-syn keyword gamsStatement       positive negative
+syn keyword gamsStatement       positive negative variable variables
 syn keyword gamsStatement       xxpto
 
 " model types
