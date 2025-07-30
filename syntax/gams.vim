@@ -388,6 +388,12 @@ syn match gamsString "'[^']*'" containedin=gamsEqn contained
 " Additional aggressive string highlighting for single quotes
 syn match gamsString "'[^']*'" contained
 
+" Force string highlighting with higher priority
+syn match gamsString "'[^']*'" containedin=gamsEqn
+
+" New highlighting group for quoted strings in equations
+syn match gamsQuotedString "'[^']*'" containedin=gamsEqn
+
 " ============================================================================
 " INCLUDES AND GLOBAL VARIABLES
 " ============================================================================
@@ -427,7 +433,7 @@ syn region gamsItemValues matchgroup=Delimiter start=+/+ skip=+".*"+ end=+/+ tra
 syn region gamsScalar matchgroup=gamsDeclaration start=/^\s*scalars\{0,1\}\_s/ end=/;/ transparent keepend fold contains=gamsItemName,gamsNumber
 
 " Equation declarations and definitions
-syn region gamsEqn    matchgroup=Delimiter start=/\.\.\(\s\|\n\)/ end=/;/ fold transparent contains=gamsComment,gamsNumber,gamsConditional,gamsRepeat,gamsSuffix,gamsString,gamsFunction,gamsEquationType,gamsStatement,gamsString
+syn region gamsEqn    matchgroup=Delimiter start=/\.\.\(\s\|\n\)/ end=/;/ fold transparent contains=gamsComment,gamsNumber,gamsConditional,gamsRepeat,gamsSuffix,gamsString,gamsFunction,gamsEquationType,gamsStatement,gamsQuotedString
 syn region gamsEqDecl matchgroup=gamsDeclaration start=/^\s*equations\{0,1\}/ end=/;/ fold transparent keepend contains=gamsItem
 
 " Variable declarations
@@ -483,6 +489,9 @@ if exists('g:gams_highlight_equation_components') && g:gams_highlight_equation_c
   hi def link gamsEquationComponent Identifier
   hi def link gamsEquationOperator  Operator
 endif
+
+" Link quoted strings to String highlighting
+hi def link gamsQuotedString String
 
 " Set current syntax
 let b:current_syntax = "gams"
