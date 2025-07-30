@@ -53,6 +53,10 @@ syn keyword gamsStatement       eps na undf inf
 syn keyword gamsStatement       yes no
 syn keyword gamsStatement       all
 
+" Logical operators - Moved to gamsStatement for better highlighting
+syn keyword gamsStatement       and or xor not
+syn keyword gamsStatement       sameas
+
 " Model types and solver options
 syn keyword gamsStatement       lp mip nlp mcp mpec cns dnlp minlp qcp
 syn keyword gamsStatement       miqcp rmip rminlp rmiqcp
@@ -123,10 +127,6 @@ syn keyword gamsYesNo           yes no
 " Control structures
 syn keyword gamsConditional     if else elseif ifi exist ife
 syn match   gamsConditional     "\$"
-
-" Logical operators - Consolidated to avoid conflicts
-syn keyword gamsControl         and or xor not
-syn keyword gamsControl         sameas
 
 " Loops and iteration
 syn keyword gamsRepeat          loop while repeat until for to downto by
@@ -441,7 +441,6 @@ hi def link gamsItemComment        gamsComment
 " Standard highlighting groups
 hi def link gamsLabel              Label
 hi def link gamsConditional        Conditional
-hi def link gamsControl            Statement
 hi def link gamsRepeat             Repeat
 hi def link gamsLineNumber         Comment
 hi def link gamsNumber             Number
