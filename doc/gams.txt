@@ -1,0 +1,252 @@
+*gams.txt*    vim-gams plugin documentation
+
+vim-gams - GAMS syntax highlighting and development support for Vim/Neovim
+
+==============================================================================
+CONTENTS                                                    *gams-contents*
+
+1. Introduction                                    |gams-introduction|
+2. Installation                                    |gams-installation|
+3. Configuration                                   |gams-configuration|
+4. Features                                        |gams-features|
+5. Commands                                        |gams-commands|
+6. Functions                                       |gams-functions|
+7. Templates                                       |gams-templates|
+8. Troubleshooting                                 |gams-troubleshooting|
+
+==============================================================================
+INTRODUCTION                                            *gams-introduction*
+
+vim-gams is a modern Vim/Neovim plugin that provides comprehensive syntax
+highlighting and development support for GAMS (General Algebraic Modeling
+System) files.
+
+Features:
+- Comprehensive syntax highlighting for GAMS files (.gms, .lst, .inc, .dat)
+- Smart indentation with GAMS-aware formatting
+- Enhanced commenting with proper GAMS comment syntax
+- File type detection and automatic configuration
+- Template system for common GAMS structures
+- File analysis and formatting tools
+- Configurable options for customization
+
+==============================================================================
+INSTALLATION                                            *gams-installation*
+
+Using a plugin manager (recommended):
+
+vim-plug: >
+    Plug 'jahanbani/vim-gams'
+
+packer.nvim: >
+    use 'jahanbani/vim-gams'
+
+lazy.nvim: >
+    {
+      'jahanbani/vim-gams',
+      config = function()
+        vim.g.gams_enable_lst_highlighting = true
+        vim.g.gams_highlight_equation_components = true
+      end
+    }
+
+Manual installation: >
+    git clone https://github.com/jahanbani/vim-gams.git ~/.vim/pack/plugins/start/vim-gams
+
+==============================================================================
+CONFIGURATION                                           *gams-configuration*
+
+Global Options:
+
+*g:gams_enable_lst_highlighting*
+    Enable highlighting for LST files (default: 1)
+
+*g:gams_highlight_equation_components*
+    Highlight sets/parameters/variables in equations (default: 1)
+
+*g:gams_comment_char*
+    Comment character for GAMS (default: '*')
+
+*g:gams_smart_indent*
+    Enable smart indentation (default: 1)
+
+*g:gams_align_comments*
+    Align comments automatically (default: 0)
+
+*g:gams_auto_format*
+    Auto-format on save (default: 0)
+
+*g:gams_executable*
+    Path to GAMS executable (default: 'gams')
+
+Example configuration in .vimrc: >
+    let g:gams_enable_lst_highlighting = 1
+    let g:gams_highlight_equation_components = 1
+    let g:gams_comment_char = '*'
+    let g:gams_smart_indent = 1
+    let g:gams_align_comments = 0
+    let g:gams_auto_format = 0
+    let g:gams_executable = '/path/to/gams'
+
+Neovim Lua configuration: >
+    vim.g.gams_enable_lst_highlighting = true
+    vim.g.gams_highlight_equation_components = true
+    vim.g.gams_comment_char = '*'
+    vim.g.gams_smart_indent = true
+    vim.g.gams_align_comments = false
+    vim.g.gams_auto_format = false
+    vim.g.gams_executable = '/path/to/gams'
+
+==============================================================================
+FEATURES                                                *gams-features*
+
+Syntax Highlighting:
+- GAMS keywords and statements
+- Mathematical functions and operators
+- Dollar commands ($include, $load, etc.)
+- Comments and TODO items
+- Numbers and strings
+- GAMS declarations (sets, parameters, variables, equations)
+- Equation types (=e=, =G=, etc.)
+- GAMS suffixes and attributes
+
+Smart Indentation:
+- Automatic indentation for GAMS declarations
+- Proper handling of GAMS keywords
+- Configurable indentation settings
+
+File Type Detection:
+- .gms files (GAMS model files)
+- .lst files (GAMS listing files)
+- .inc files (GAMS include files)
+- .dat files (GAMS data files)
+
+Commenting:
+- Proper GAMS comment syntax (* at line start)
+- Inline comments (#)
+- Comment alignment options
+- TODO highlighting in comments
+
+==============================================================================
+COMMANDS                                                *gams-commands*
+
+:GamsFormatFile
+    Format the current GAMS file (remove trailing whitespace, fix line endings)
+
+:GamsAlignComments
+    Align comments in the current file
+
+:GamsAnalyzeFile
+    Analyze the structure of the current GAMS file
+
+:GamsRunGams
+    Run GAMS on the current file (requires GAMS executable)
+
+:GamsToggleLstHighlighting
+    Toggle LST file highlighting
+
+:GamsToggleEquationHighlighting
+    Toggle equation component highlighting
+
+:GamsInsertTemplate {template_type}
+    Insert a GAMS template. Available templates:
+    - basic: Basic GAMS model structure
+    - transport: Transportation problem template
+    - include: Include file template
+
+==============================================================================
+FUNCTIONS                                               *gams-functions*
+
+gams#IsGamsFile()
+    Returns 1 if current buffer is a GAMS file, 0 otherwise
+
+gams#GetFileType()
+    Returns the type of GAMS file ('model', 'listing', 'include', 'data', 'unknown')
+
+gams#FormatFile()
+    Format the current GAMS file
+
+gams#AlignComments()
+    Align comments in the current file
+
+gams#InsertTemplate(template_type)
+    Insert a GAMS template of the specified type
+
+gams#AnalyzeFile()
+    Analyze the structure of the current GAMS file
+
+gams#RunGams()
+    Run GAMS on the current file
+
+gams#Init()
+    Initialize the plugin and set default values
+
+==============================================================================
+TEMPLATES                                               *gams-templates*
+
+The plugin provides several templates for common GAMS structures:
+
+Basic Template:
+    Simple GAMS model with sets, parameters, variables, and equations
+
+Transport Template:
+    Complete transportation problem with supply/demand constraints
+
+Include Template:
+    Template for GAMS include files with common definitions
+
+To insert a template, use: >
+    :call gams#InsertTemplate('basic')
+    :call gams#InsertTemplate('transport')
+    :call gams#InsertTemplate('include')
+
+==============================================================================
+TROUBLESHOOTING                                         *gams-troubleshooting*
+
+Q: Syntax highlighting doesn't work for LST files
+A: Make sure g:gams_enable_lst_highlighting is set to 1
+
+Q: Comments aren't highlighted properly
+A: The plugin now properly handles GAMS comments with * at line start
+
+Q: GAMS executable not found
+A: Set g:gams_executable to the correct path to your GAMS installation
+
+Q: Indentation doesn't work as expected
+A: Ensure g:gams_smart_indent is enabled and check your Vim indentation settings
+
+Q: Template insertion doesn't work
+A: Make sure you're in a GAMS file buffer and the template name is correct
+
+==============================================================================
+CHANGELOG                                               *gams-changelog*
+
+Version 2.0.0:
+- Complete rewrite and modernization
+- Enhanced syntax highlighting with better organization
+- Fixed comment highlighting issues
+- Added LST file support
+- Added equation component highlighting
+- New template system
+- File analysis and formatting tools
+- Comprehensive configuration options
+- Modern documentation and structure
+- Added autoload functions for extensibility
+
+Version 1.0.0:
+- Initial release with basic syntax highlighting
+
+==============================================================================
+AUTHOR                                                   *gams-author*
+
+vim-gams contributors
+
+Original syntax highlighting by the GAMS community
+Modern improvements and maintenance by contributors
+
+==============================================================================
+LICENSE                                                  *gams-license*
+
+MIT License - see LICENSE file for details.
+
+vim:tw=78:ts=8:ft=help:norl: 

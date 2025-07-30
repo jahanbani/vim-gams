@@ -1,0 +1,42 @@
+{
+  "name": "vim-gams",
+  "version": "2.0.0",
+  "description": "A modern Vim/Neovim plugin for GAMS (General Algebraic Modeling System) syntax highlighting and development support",
+  "author": "vim-gams contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jahanbani/vim-gams.git"
+  },
+  "keywords": [
+    "vim",
+    "neovim",
+    "gams",
+    "syntax-highlighting",
+    "optimization",
+    "mathematical-modeling"
+  ],
+  "files": [
+    "ftdetect/",
+    "plugin/",
+    "syntax/",
+    "autoload/",
+    "README.md",
+    "LICENSE"
+  ],
+  "vim": {
+    "plugin": {
+      "name": "vim-gams",
+      "description": "GAMS syntax highlighting and development support"
+    }
+  },
+  "neovim": {
+    "requires": {
+      "nvim": "0.5.0"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/jahanbani/vim-gams/issues"
+  },
+  "homepage": "https://github.com/jahanbani/vim-gams#readme"
+} 
