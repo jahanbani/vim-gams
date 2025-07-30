@@ -13,6 +13,14 @@ endif
 syn case ignore
 
 " ============================================================================
+" STRINGS AND CHARACTERS (MOVED EARLY FOR PRECEDENCE)
+" ============================================================================
+
+" String constants - Define early to take precedence
+syn region gamsString matchgroup=Delimiter start=+"+  skip=+\\\\\|\\"+  end=+"+
+syn region gamsString matchgroup=Delimiter start=+'+  skip=+\\\\\|\\"+  end=+'+
+
+" ============================================================================
 " KEYWORDS AND STATEMENTS
 " ============================================================================
 
@@ -345,14 +353,6 @@ syn keyword gamsSuffix          up val ws
 
 " GAMS suffixes with dot notation - Enhanced highlighting
 syn match gamsSuffixDot         "\.[a-zA-Z][a-zA-Z0-9]*" contained
-
-" ============================================================================
-" STRINGS AND CHARACTERS
-" ============================================================================
-
-" String constants
-syn region gamsString matchgroup=Delimiter start=+"+  skip=+\\\\\|\\"+  end=+"+
-syn region gamsString matchgroup=Delimiter start=+'+  skip=+\\\\\|\\"+  end=+'+
 
 " ============================================================================
 " EQUATION TYPES AND COMPONENTS
