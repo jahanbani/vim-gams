@@ -161,8 +161,8 @@ syn match   gamsMathsOperators "<="
 syn match   gamsMathsOperators ">"
 syn match   gamsMathsOperators "<"
 
-" Comparison operators
-syn match   gamsComparison     "<=>\|=\|->\|<>\|>\|<"
+" Comparison operators - Consolidated to avoid conflicts
+syn match   gamsComparison     "<=>\|->\|<>\|>\|<"
 syn keyword gamsComparison     eq ne gt ge lt le eqv imp
 
 " Mathematical and statistical functions - Enhanced highlighting
@@ -382,6 +382,13 @@ if exists('g:gams_highlight_equation_components') && g:gams_highlight_equation_c
   syn match gamsEquationOperator "<=" contained
 endif
 
+" Always highlight operators within equations (not just when option is enabled)
+syn match gamsEquationOperator "[-+*/^=<>]" containedin=gamsEqn contained
+syn match gamsEquationOperator "==" containedin=gamsEqn contained
+syn match gamsEquationOperator "<>" containedin=gamsEqn contained
+syn match gamsEquationOperator ">=" containedin=gamsEqn contained
+syn match gamsEquationOperator "<=" containedin=gamsEqn contained
+
 " String highlighting within equations - more specific and higher priority
 syn match gamsString "'[^']*'" containedin=gamsEqn contained
 
@@ -433,7 +440,7 @@ syn region gamsItemValues matchgroup=Delimiter start=+/+ skip=+".*"+ end=+/+ tra
 syn region gamsScalar matchgroup=gamsDeclaration start=/^\s*scalars\{0,1\}\_s/ end=/;/ transparent keepend fold contains=gamsItemName,gamsNumber
 
 " Equation declarations and definitions
-syn region gamsEqn    matchgroup=Delimiter start=/\.\.\(\s\|\n\)/ end=/;/ fold transparent contains=gamsComment,gamsNumber,gamsConditional,gamsRepeat,gamsSuffix,gamsString,gamsFunction,gamsEquationType,gamsStatement,gamsQuotedString
+syn region gamsEqn    matchgroup=Delimiter start=/\.\.\(\s\|\n\)/ end=/;/ fold transparent contains=gamsComment,gamsNumber,gamsConditional,gamsRepeat,gamsSuffix,gamsString,gamsFunction,gamsEquationType,gamsStatement,gamsQuotedString,gamsMathsOperators,gamsEquationOperator
 syn region gamsEqDecl matchgroup=gamsDeclaration start=/^\s*equations\{0,1\}/ end=/;/ fold transparent keepend contains=gamsItem
 
 " Variable declarations
