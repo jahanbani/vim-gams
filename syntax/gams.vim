@@ -16,7 +16,7 @@ syn case ignore
 " KEYWORDS AND STATEMENTS
 " ============================================================================
 
-" Core GAMS statements
+" Core GAMS statements and keywords
 syn keyword gamsStatement       solve using
 syn keyword gamsStatement       display
 syn keyword gamsStatement       option
@@ -26,12 +26,76 @@ syn keyword gamsStatement       free semicont semiint sos1 sos2 binary integer
 syn keyword gamsStatement       positive negative variable variables
 syn keyword gamsStatement       xxpto
 
-" Model types
+" Additional GAMS keywords from official documentation
+syn keyword gamsStatement       scalar scalars
+syn keyword gamsStatement       table tables
+syn keyword gamsStatement       model models
+syn keyword gamsStatement       set sets
+syn keyword gamsStatement       parameter parameters
+syn keyword gamsStatement       equation equations
+syn keyword gamsStatement       variable variables
+syn keyword gamsStatement       file files
+syn keyword gamsStatement       put putclose putpage puttl puthd
+syn keyword gamsStatement       loop while repeat until for to downto by
+syn keyword gamsStatement       if else elseif endif
+syn keyword gamsStatement       and or xor not
+syn keyword gamsStatement       card ord
+syn keyword gamsStatement       sum prod smax smin
+syn keyword gamsStatement       abs ceil floor round trunc
+syn keyword gamsStatement       sin cos tan asin acos atan
+syn keyword gamsStatement       sinh cosh tanh asinh acosh atanh
+syn keyword gamsStatement       exp log log10 sqrt power
+syn keyword gamsStatement       uniform normal beta gamma
+syn keyword gamsStatement       errorf entropy fact
+syn keyword gamsStatement       mapval mod div
+syn keyword gamsStatement       sign signpower
+syn keyword gamsStatement       time ctime
+syn keyword gamsStatement       eps na undf inf
+syn keyword gamsStatement       yes no
+syn keyword gamsStatement       all
+
+" Model types and solver options
 syn keyword gamsStatement       lp mip nlp mcp mpec cns dnlp minlp qcp
 syn keyword gamsStatement       miqcp rmip rminlp rmiqcp
+syn keyword gamsStatement       cplex gurobi xpress mosek
+syn keyword gamsStatement       ipopt knitro conopt snopt
+syn keyword gamsStatement       baron antigone couenne
+syn keyword gamsStatement       path mpec
 
-" External utilities
-syn keyword gamsStatement       put file putclose putpage puttl puthd
+" GAMS control statements
+syn keyword gamsStatement       abort stop
+syn keyword gamsStatement       execute execute_load execute_unload
+syn keyword gamsStatement       gdxin gdxout
+syn keyword gamsStatement       include batinclude libinclude sysinclude
+syn keyword gamsStatement       ontext offtext
+syn keyword gamsStatement       onlisting offlisting
+syn keyword gamsStatement       oneolcom offeolcom
+syn keyword gamsStatement       onupper offupper
+syn keyword gamsStatement       onwarning offwarning
+syn keyword gamsStatement       onundf offundf
+syn keyword gamsStatement       oneps offeps
+syn keyword gamsStatement       onempty offempty
+syn keyword gamsStatement       onmulti offmulti
+syn keyword gamsStatement       onglobal offglobal
+syn keyword gamsStatement       onput offput
+syn keyword gamsStatement       onsymlist offsymlist
+syn keyword gamsStatement       onsymxref offsymxref
+syn keyword gamsStatement       onuellist offuellist
+syn keyword gamsStatement       onuelxref offuelxref
+syn keyword gamsStatement       ondigit offdigit
+syn keyword gamsStatement       oninline offinline
+syn keyword gamsStatement       onmargin offmargin
+syn keyword gamsStatement       onnestcom offnestcom
+syn keyword gamsStatement       onend offend
+
+" GAMS system variables and functions
+syn keyword gamsStatement       system fileSys
+syn keyword gamsStatement       gdxxrw
+syn keyword gamsStatement       limrow limcol
+syn keyword gamsStatement       optfile optca optcr
+syn keyword gamsStatement       savepoint
+syn keyword gamsStatement       scaleopt
+syn keyword gamsStatement       scenario
 
 " Boolean values
 syn keyword gamsYesNo           yes no
