@@ -28,9 +28,6 @@ setlocal syntax=on
 syn region gamsString matchgroup=Delimiter start=+"+  skip=+\\\\\|\\"+  end=+"+
 syn region gamsString matchgroup=Delimiter start=+'+  skip=+\\\\\|\\"+  end=+'+
 
-" Additional string highlighting for single quotes within equations
-syn match gamsString "'[^']*'" contained
-
 " ============================================================================
 " KEYWORDS AND STATEMENTS
 " ============================================================================
@@ -385,8 +382,11 @@ if exists('g:gams_highlight_equation_components') && g:gams_highlight_equation_c
   syn match gamsEquationOperator "<=" contained
 endif
 
-" String highlighting within equations - more specific
-syn match gamsString "'[^']*'" containedin=gamsEqn
+" String highlighting within equations - more specific and higher priority
+syn match gamsString "'[^']*'" containedin=gamsEqn contained
+
+" Additional aggressive string highlighting for single quotes
+syn match gamsString "'[^']*'" contained
 
 " ============================================================================
 " INCLUDES AND GLOBAL VARIABLES
