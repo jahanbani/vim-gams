@@ -358,21 +358,20 @@ syn region gamsString matchgroup=Delimiter start=+'+  skip=+\\\\\|\\"+  end=+'+
 " EQUATION TYPES AND COMPONENTS
 " ============================================================================
 
-" Equation types (e.g. =e= or =G=) - More specific highlighting
-syn match gamsEquationType      "=[cegln]=" containedin=gamsEqn
-syn match gamsEquationType      "=[cegln]=" containedin=gamsEqDecl
+" Equation types (e.g. =e= or =G=) - Simple approach
+syn match gamsEquationType      "=[cegln]="
 
 " Enhanced equation component highlighting
 if exists('g:gams_highlight_equation_components') && g:gams_highlight_equation_components
   " Highlight sets, parameters, variables within equations
-  syn match gamsEquationComponent "\<[[:alpha:]][_[:alnum:]]*\>" containedin=gamsEqn
-  syn match gamsEquationComponent "([^)]*)" containedin=gamsEqn
+  syn match gamsEquationComponent "\<[[:alpha:]][_[:alnum:]]*\>" contained
+  syn match gamsEquationComponent "([^)]*)" contained
   " Highlight mathematical operators within equations
-  syn match gamsEquationOperator "[-+*/^=<>]" containedin=gamsEqn
-  syn match gamsEquationOperator "==" containedin=gamsEqn
-  syn match gamsEquationOperator "<>" containedin=gamsEqn
-  syn match gamsEquationOperator ">=" containedin=gamsEqn
-  syn match gamsEquationOperator "<=" containedin=gamsEqn
+  syn match gamsEquationOperator "[-+*/^=<>]" contained
+  syn match gamsEquationOperator "==" contained
+  syn match gamsEquationOperator "<>" contained
+  syn match gamsEquationOperator ">=" contained
+  syn match gamsEquationOperator "<=" contained
 endif
 
 " ============================================================================
@@ -414,7 +413,7 @@ syn region gamsItemValues matchgroup=Delimiter start=+/+ skip=+".*"+ end=+/+ tra
 syn region gamsScalar matchgroup=gamsDeclaration start=/^\s*scalars\{0,1\}\_s/ end=/;/ transparent keepend fold contains=gamsItemName,gamsNumber
 
 " Equation declarations and definitions
-syn region gamsEqn    matchgroup=Delimiter start=/\.\.\(\s\|\n\)/ end=/;/ fold transparent contains=gamsComment,gamsNumber,gamsConditional,gamsRepeat,gamsSuffix,gamsString,gamsFunction,gamsEquationComponent,gamsEquationOperator,gamsSpecialFunction,gamsStatement
+syn region gamsEqn    matchgroup=Delimiter start=/\.\.\(\s\|\n\)/ end=/;/ fold transparent contains=gamsComment,gamsNumber,gamsConditional,gamsRepeat,gamsSuffix,gamsString,gamsFunction,gamsEquationType,gamsStatement
 syn region gamsEqDecl matchgroup=gamsDeclaration start=/^\s*equations\{0,1\}/ end=/;/ fold transparent keepend contains=gamsItem
 
 " Variable declarations
