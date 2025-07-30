@@ -13,6 +13,14 @@ endif
 syn case ignore
 
 " ============================================================================
+" SYNTAX HIGHLIGHTING SETTINGS FOR LONG LINES
+" ============================================================================
+
+" Increase syntax highlighting limits for long lines
+setlocal synmaxcol=0
+setlocal syntax=on
+
+" ============================================================================
 " STRINGS AND CHARACTERS (MOVED EARLY FOR PRECEDENCE)
 " ============================================================================
 

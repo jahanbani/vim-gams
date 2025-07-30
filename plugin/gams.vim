@@ -59,6 +59,9 @@ if has('spell')
   setlocal spelllang=en
 endif
 
+" Fix syntax highlighting for long lines
+setlocal synmaxcol=0
+
 " Auto-commands for GAMS files
 augroup GamsAutoCommands
   autocmd!
