@@ -21,7 +21,7 @@ syn keyword gamsStatement       solve using
 syn keyword gamsStatement       display
 syn keyword gamsStatement       option
 syn keyword gamsStatement       alias
-syn keyword gamsStatement       sameas abort
+syn keyword gamsStatement       abort
 syn keyword gamsStatement       free semicont semiint sos1 sos2 binary integer
 syn keyword gamsStatement       positive negative variable variables
 syn keyword gamsStatement       xxpto
@@ -38,7 +38,6 @@ syn keyword gamsStatement       file files
 syn keyword gamsStatement       put putclose putpage puttl puthd
 syn keyword gamsStatement       loop while repeat until for to downto by
 syn keyword gamsStatement       if else elseif endif
-syn keyword gamsStatement       and or xor not
 syn keyword gamsStatement       card ord
 syn keyword gamsStatement       sum prod smax smin
 syn keyword gamsStatement       abs ceil floor round trunc
@@ -63,7 +62,7 @@ syn keyword gamsStatement       baron antigone couenne
 syn keyword gamsStatement       path mpec
 
 " GAMS control statements
-syn keyword gamsStatement       abort stop
+syn keyword gamsStatement       stop
 syn keyword gamsStatement       execute execute_load execute_unload
 syn keyword gamsStatement       gdxin gdxout
 syn keyword gamsStatement       include batinclude libinclude sysinclude
@@ -99,10 +98,6 @@ syn keyword gamsStatement       scenario
 
 " Additional GAMS keywords from documentation
 syn keyword gamsStatement       index
-syn keyword gamsStatement       uniform
-syn keyword gamsStatement       normal
-syn keyword gamsStatement       beta
-syn keyword gamsStatement       gamma
 syn keyword gamsStatement       binomial
 syn keyword gamsStatement       edist
 syn keyword gamsStatement       ncpcm
@@ -117,36 +112,6 @@ syn keyword gamsStatement       uniformint
 syn keyword gamsStatement       precision
 syn keyword gamsStatement       sigmoid
 syn keyword gamsStatement       asc
-syn keyword gamsStatement       ctime
-syn keyword gamsStatement       time
-
-" GAMS logical and comparison operators
-syn keyword gamsStatement       eq ne gt ge lt le eqv imp
-syn keyword gamsStatement       and or xor not
-syn keyword gamsStatement       sameas not sameas
-
-" GAMS control flow
-syn keyword gamsStatement       if else elseif endif
-syn keyword gamsStatement       loop while repeat until
-syn keyword gamsStatement       for to downto by
-
-" GAMS data types and modifiers
-syn keyword gamsStatement       free semicont semiint sos1 sos2 binary integer
-syn keyword gamsStatement       positive negative
-syn keyword gamsStatement       alias
-
-" GAMS file operations
-syn keyword gamsStatement       put putclose putpage puttl puthd
-syn keyword gamsStatement       file files
-
-" GAMS system and environment
-syn keyword gamsStatement       system fileSys
-syn keyword gamsStatement       gdxxrw
-syn keyword gamsStatement       limrow limcol
-syn keyword gamsStatement       optfile optca optcr
-syn keyword gamsStatement       savepoint
-syn keyword gamsStatement       scaleopt
-syn keyword gamsStatement       scenario
 
 " Boolean values
 syn keyword gamsYesNo           yes no
@@ -159,8 +124,9 @@ syn keyword gamsYesNo           yes no
 syn keyword gamsConditional     if else elseif ifi exist ife
 syn match   gamsConditional     "\$"
 
-" Logical operators
+" Logical operators - Consolidated to avoid conflicts
 syn keyword gamsControl         and or xor not
+syn keyword gamsControl         sameas
 
 " Loops and iteration
 syn keyword gamsRepeat          loop while repeat until for to downto by
@@ -196,7 +162,7 @@ syn keyword gamsFunction       mapval mod ncpcm ncpf pi poly power
 syn keyword gamsFunction       sign signpower trunc uniform uniformint
 
 " Special GAMS functions - Enhanced highlighting
-syn keyword gamsSpecialFunction sameas not sameas card ord
+syn keyword gamsSpecialFunction card ord
 
 " ============================================================================
 " EXECUTION TIME COMMANDS
