@@ -20,6 +20,9 @@ syn case ignore
 syn region gamsString matchgroup=Delimiter start=+"+  skip=+\\\\\|\\"+  end=+"+
 syn region gamsString matchgroup=Delimiter start=+'+  skip=+\\\\\|\\"+  end=+'+
 
+" Additional string highlighting for single quotes within equations
+syn match gamsString "'[^']*'" contained
+
 " ============================================================================
 " KEYWORDS AND STATEMENTS
 " ============================================================================
@@ -374,6 +377,9 @@ if exists('g:gams_highlight_equation_components') && g:gams_highlight_equation_c
   syn match gamsEquationOperator "<=" contained
 endif
 
+" String highlighting within equations - more specific
+syn match gamsString "'[^']*'" containedin=gamsEqn
+
 " ============================================================================
 " INCLUDES AND GLOBAL VARIABLES
 " ============================================================================
@@ -413,7 +419,7 @@ syn region gamsItemValues matchgroup=Delimiter start=+/+ skip=+".*"+ end=+/+ tra
 syn region gamsScalar matchgroup=gamsDeclaration start=/^\s*scalars\{0,1\}\_s/ end=/;/ transparent keepend fold contains=gamsItemName,gamsNumber
 
 " Equation declarations and definitions
-syn region gamsEqn    matchgroup=Delimiter start=/\.\.\(\s\|\n\)/ end=/;/ fold transparent contains=gamsComment,gamsNumber,gamsConditional,gamsRepeat,gamsSuffix,gamsString,gamsFunction,gamsEquationType,gamsStatement
+syn region gamsEqn    matchgroup=Delimiter start=/\.\.\(\s\|\n\)/ end=/;/ fold transparent contains=gamsComment,gamsNumber,gamsConditional,gamsRepeat,gamsSuffix,gamsString,gamsFunction,gamsEquationType,gamsStatement,gamsString
 syn region gamsEqDecl matchgroup=gamsDeclaration start=/^\s*equations\{0,1\}/ end=/;/ fold transparent keepend contains=gamsItem
 
 " Variable declarations
